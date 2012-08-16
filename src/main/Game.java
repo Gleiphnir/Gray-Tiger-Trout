@@ -21,10 +21,15 @@ public class Game {
 				new WolverineFolk(),new BuffaloFolk(),new VultureFolk(),new WolfFolk(),new TigerFolk(),
 				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk()};
 		
+		TerrainDice t1 = new FlatlandCity();
+		
 		Dice w2[] = {new WeaselFolk(),new AntelopeFolk(),new FalconFolk(),new HoundFolk(),new LynxFolk(),
 				new BadgerFolk(),new HorseFolk(),new HawkFolk(),new FoxFolk(),new LeopardFolk(),
 				new WolverineFolk(),new BuffaloFolk(),new VultureFolk(),new WolfFolk(),new TigerFolk(),
 				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk()};
+		
+		t1.rollDice();
+		
 		
 		//Begin a new round with first March
 		System.out.println("Would you like to conduct a Maneuver?");

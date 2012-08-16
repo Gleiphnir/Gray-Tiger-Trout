@@ -40,6 +40,12 @@ public class Game {
 				System.out.println((maneuver>counterManeuver) ? "Sucess":"Failure");				
 			}
 		}
+		
+		System.out.println("Would you like to conduct a Action?");
+		player1 = keyboard.nextBoolean();
+		if(player1){//If player wants to engage in an Action
+			
+		}
 	}
 
 	private static int maneuverDiceRoll(Dice[] w) {

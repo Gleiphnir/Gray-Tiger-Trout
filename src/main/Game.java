@@ -47,7 +47,6 @@ public class Game {
 		for(Dice d:w)	
 		{
 			total += singleManeuverRoll(d);
-			//System.out.println("You rolled "+d.getID()+" with "+d.getCurrentFace().getName());
 		}
 		return total;
 	}

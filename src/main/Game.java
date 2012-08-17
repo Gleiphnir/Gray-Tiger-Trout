@@ -2,7 +2,10 @@ package main;
 
 import icons.Flags;
 import icons.IDIcon;
+import icons.MagicIcon;
 import icons.ManeuverIcon;
+import icons.MeleeIcon;
+import icons.MissileIcon;
 import icons.SpecialIcons;
 import icons.EightFace;
 
@@ -39,7 +42,15 @@ public class Game {
 		System.out.println("Would you like to conduct a Action?");
 		boolean player1 = keyboard.nextBoolean();
 		if(player1){//If player wants to engage in an Action
-			
+			if(t1.getCurrentFace() instanceof MeleeIcon){
+				System.out.println("You are conducting a Melee Action.");
+			}
+			else if(t1.getCurrentFace() instanceof MissileIcon){
+				System.out.println("You are conducting a Missile Action");
+			}
+			else if(t1.getCurrentFace() instanceof MagicIcon){
+				System.out.println("You are conducting a Magic Action");
+			}
 		}
 	}
 

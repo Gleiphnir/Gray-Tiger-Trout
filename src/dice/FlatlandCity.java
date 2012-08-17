@@ -1,5 +1,6 @@
 package dice;
 
+import icons.CityIcon;
 import icons.MagicIcon;
 import icons.MeleeIcon;
 import icons.MissileIcon;
@@ -19,7 +20,7 @@ public class FlatlandCity extends TerrainDice {
 		this.actionIcons.add(new MeleeIcon(5));
 		this.actionIcons.add(new MeleeIcon(6));
 		this.actionIcons.add(new MeleeIcon(7));
-		this.actionIcons.add(new CityIcon());
+		this.actionIcons.add(new CityIcon(8));
 	}
 
 }

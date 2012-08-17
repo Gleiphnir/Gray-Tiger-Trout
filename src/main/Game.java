@@ -4,6 +4,7 @@ import icons.Flags;
 import icons.IDIcon;
 import icons.ManeuverIcon;
 import icons.SpecialIcons;
+import icons.EightFace;
 
 import java.util.Scanner;
 
@@ -19,16 +20,16 @@ public class Game {
 		Dice w1[] = {new WeaselFolk(),new AntelopeFolk(),new FalconFolk(),new HoundFolk(),new LynxFolk(),
 				new BadgerFolk(),new HorseFolk(),new HawkFolk(),new FoxFolk(),new LeopardFolk(),
 				new WolverineFolk(),new BuffaloFolk(),new VultureFolk(),new WolfFolk(),new TigerFolk(),
-				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk()};
+				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk(),new RhinoFolk()};
 		
 		TerrainDice t1 = new FlatlandCity();
 		
 		Dice w2[] = {new WeaselFolk(),new AntelopeFolk(),new FalconFolk(),new HoundFolk(),new LynxFolk(),
 				new BadgerFolk(),new HorseFolk(),new HawkFolk(),new FoxFolk(),new LeopardFolk(),
 				new WolverineFolk(),new BuffaloFolk(),new VultureFolk(),new WolfFolk(),new TigerFolk(),
-				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk()};
+				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk(),new RhinoFolk()};
 		
-		t1.rollDice();
+		while(t1.rollDice() instanceof EightFace);
 		
 		
 		//Begin a new round with first March
@@ -42,7 +43,21 @@ public class Game {
 				System.out.println("You rolled "+maneuver+" movement score.");
 				int counterManeuver = maneuverDiceRoll(w2);
 				System.out.println("You countered with "+counterManeuver+" movement score.");
-				System.out.println((maneuver>counterManeuver) ? "Sucess":"Failure");				
+				if(maneuver>counterManeuver){
+					t1.getCurrentFaceValue();
+				}
+				else
+					System.out.println("Failed in moving the Terrain Dice");
+			}
+			else{
+				System.out.println("Would you like to move the Terrain Dice Up or Down?");
+				String choice = keyboard.next();
+				if(choice.equalsIgnoreCase("up")){
+					System.out.println((t1.moveUp()) ? "Successfully moved up to "+t1.getCurrentFaceValue():"Already at Eight Face");
+				}
+				else if(choice.equalsIgnoreCase("down")){
+					System.out.println((t1.moveDown()) ? "Successfully moved down to "+t1.getCurrentFaceValue():"Already at First Face");
+				}
 			}
 		}
 		

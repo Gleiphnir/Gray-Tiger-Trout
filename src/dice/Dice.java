@@ -9,7 +9,7 @@ public abstract class Dice {
 	protected final int numFaces;
 	protected final int size;
 	protected final String ID;
-	private Icons currentFace;
+	protected Icons currentFace;
 	protected Vector<Color> aspect;
 	protected Vector<Icons> actionIcons;
 	
@@ -54,9 +54,10 @@ public abstract class Dice {
 		return this.currentFace.getActionValue();
 	}
 	
-	public void rollDice(){
-		this.currentFace = this.actionIcons.get((int) (Math.random()*(this.numFaces-1)));
+	public Icons rollDice(){
+		this.currentFace = this.actionIcons.get((int) (Math.random()*(this.numFaces)));
 		System.out.println("You rolled "+this.ID+" with "+this.currentFace.getName()+" "+this.currentFace.getActionValue());
+		return this.currentFace;
 	}
 	
 	public abstract boolean isMonster();

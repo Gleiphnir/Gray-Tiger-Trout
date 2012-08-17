@@ -18,4 +18,9 @@ public class Icons {
 		return this.name;
 	}
 	
+	public String toString(){
+		return name+" "+actionValue;
+		
+	}
+	
 }

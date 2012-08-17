@@ -29,43 +29,48 @@ public class Game {
 				new WolverineFolk(),new BuffaloFolk(),new VultureFolk(),new WolfFolk(),new TigerFolk(),
 				new BearFolk(),new OwlFolk(),new ElephantFolk(),new LionFolk(),new RhinoFolk()};
 		
+		//While the terrain dice is rolled on the eight face. (ie. Loops until not eight face)
 		while(t1.rollDice() instanceof EightFace);
-		
+		System.out.println("Current Terrain Face is: "+t1.getCurrentFace().toString());		
 		
 		//Begin a new round with first March
+		movementRoll(keyboard, w1, t1, w2);
+		
+		System.out.println("Would you like to conduct a Action?");
+		boolean player1 = keyboard.nextBoolean();
+		if(player1){//If player wants to engage in an Action
+			
+		}
+	}
+
+	private static boolean movementRoll(Scanner keyboard, Dice[] w1,
+			TerrainDice t1, Dice[] w2) {
 		System.out.println("Would you like to conduct a Maneuver?");
 		boolean player1 = keyboard.nextBoolean();
-		if(player1){//If player1 wants to move the terrain dice up, then ask for counter
+		boolean move = false;//Assume player does not want to move
+		if(player1){
+			//If player1 wants to move the terrain, then ask for counter
+			move = true;
 			System.out.println("Would you like to conduct a Counter-Maneuver?");
 			boolean player2 = keyboard.nextBoolean();
-			if(player2){//If player2 wants to counter then proceed with rolls
+			//If player2 wants to counter then proceed with rolls
+			if(player2){
 				int maneuver = maneuverDiceRoll(w1);
 				System.out.println("You rolled "+maneuver+" movement score.");
 				int counterManeuver = maneuverDiceRoll(w2);
 				System.out.println("You countered with "+counterManeuver+" movement score.");
-				if(maneuver>counterManeuver){
-					t1.getCurrentFaceValue();
-				}
-				else
-					System.out.println("Failed in moving the Terrain Dice");
-			}
-			else{
-				System.out.println("Would you like to move the Terrain Dice Up or Down?");
-				String choice = keyboard.next();
-				if(choice.equalsIgnoreCase("up")){
-					System.out.println((t1.moveUp()) ? "Successfully moved up to "+t1.getCurrentFaceValue():"Already at Eight Face");
-				}
-				else if(choice.equalsIgnoreCase("down")){
-					System.out.println((t1.moveDown()) ? "Successfully moved down to "+t1.getCurrentFaceValue():"Already at First Face");
-				}
+				//Set move to the success or failure of player1 beating player2 in maneuver
+				move = (maneuver>counterManeuver);
 			}
 		}
-		
-		System.out.println("Would you like to conduct a Action?");
-		player1 = keyboard.nextBoolean();
-		if(player1){//If player wants to engage in an Action
-			
-		}
+		return move ? successfullMovement(keyboard, t1):false;
+	}
+
+	private static boolean successfullMovement(Scanner keyboard, TerrainDice t1) {
+		System.out.println("Would you like to move the Terrain Dice Up or Down?");
+		String choice = keyboard.next();
+			return choice.equalsIgnoreCase("up") ? t1.moveUp():
+				choice.equalsIgnoreCase("down") ? t1.moveDown() : false;
 	}
 
 	private static int maneuverDiceRoll(Dice[] w) {

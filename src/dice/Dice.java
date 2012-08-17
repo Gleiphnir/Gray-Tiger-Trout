@@ -56,7 +56,7 @@ public abstract class Dice {
 	
 	public Icons rollDice(){
 		this.currentFace = this.actionIcons.get((int) (Math.random()*(this.numFaces)));
-		System.out.println("You rolled "+this.ID+" with "+this.currentFace.getName()+" "+this.currentFace.getActionValue());
+	//	System.out.println("You rolled "+this.ID+" with "+this.currentFace.getName()+" "+this.currentFace.getActionValue());
 		return this.currentFace;
 	}
 	

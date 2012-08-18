@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Cantrip extends SpecialIcons {
 
 	public Cantrip(int aV) {
@@ -7,8 +9,9 @@ public class Cantrip extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		return rollFlags.resetFlags();
+	public boolean resolveEffects(Player p) {
+		System.out.println("Do something here if magic");
+		return false;
 	}
 
 }

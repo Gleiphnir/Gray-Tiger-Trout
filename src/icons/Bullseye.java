@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Bullseye extends SpecialIcons {
 
 	public Bullseye(int aV) {
@@ -7,8 +9,9 @@ public class Bullseye extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		return rollFlags.resetFlags();
+	public boolean resolveEffects(Player p) {
+		System.out.println("Do something here if it's a missile action");
+		return false;
 	}
 
 }

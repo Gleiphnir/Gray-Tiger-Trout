@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Fly extends SpecialIcons {
 
 	public Fly(int aV) {
@@ -7,12 +9,9 @@ public class Fly extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		rollFlags.resetFlags();
-		rollFlags.ManeuverFlag = true;
-		rollFlags.SaveFlag = true;
-		rollFlags.addFaceValue = true;
-		return rollFlags;
+	public boolean resolveEffects(Player p) {
+		System.out.println("Do something here if magic");
+		return false;
 	}
 
 }

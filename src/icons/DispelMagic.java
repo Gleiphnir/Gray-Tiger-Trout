@@ -1,5 +1,6 @@
 package icons;
 
+import main.Player;
 import icons.SpecialIcons;
 
 public class DispelMagic extends SpecialIcons {
@@ -9,8 +10,8 @@ public class DispelMagic extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		return rollFlags.resetFlags();
+	public boolean resolveEffects(Player p) {
+		return false;
 	}
 
 }

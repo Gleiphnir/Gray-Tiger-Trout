@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Counter extends SpecialIcons {
 
 	public Counter(int aV) {
@@ -8,8 +10,9 @@ public class Counter extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		return rollFlags.resetFlags();
+	public boolean resolveEffects(Player p) {
+		System.out.println("Do something here if melee");
+		return false;
 	}
 
 }

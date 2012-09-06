@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Seize extends SpecialIcons {
 
 	public Seize(int aV) {
@@ -7,11 +9,9 @@ public class Seize extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		if(rollFlags.MissileFlag){
-			System.out.println("You have rolled Seize");
-		}
-		return rollFlags.resetFlags();			
+	public int resolveEffects(Player p) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

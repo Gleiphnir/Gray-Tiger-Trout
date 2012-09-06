@@ -9,9 +9,9 @@ public class DoubleStrike extends SpecialIcons {
 	}
 
 	@Override
-	public boolean resolveEffects(Player rollFlags) {
+	public int resolveEffects(Player rollFlags) {
 		System.out.println("Do something here if magic");
-		return false;
+		return 0;
 	}
 
 }

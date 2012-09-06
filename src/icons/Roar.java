@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Roar extends SpecialIcons {
 
 	public Roar(int aV) {
@@ -7,11 +9,9 @@ public class Roar extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		if(rollFlags.MeleeFlag){
-			System.out.println("You rolled Roar");
-		}
-		return rollFlags.resetFlags();
+	public int resolveEffects(Player p) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

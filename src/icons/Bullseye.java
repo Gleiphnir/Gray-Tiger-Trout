@@ -9,9 +9,9 @@ public class Bullseye extends SpecialIcons {
 	}
 
 	@Override
-	public boolean resolveEffects(Player p) {
+	public int resolveEffects(Player p) {
 		System.out.println("Do something here if it's a missile action");
-		return false;
+		return 0;
 	}
 
 }

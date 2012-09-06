@@ -11,15 +11,15 @@ public class RhinoFolk extends Feral {
 
 	public RhinoFolk() {
 		super(10, 4, "Rhino Folk");
-		this.actionIcons.add(new ManeuverIcon(4));
-		this.actionIcons.add(new SaveIcon(4));
-		this.actionIcons.add(new MeleeIcon(4));
-		this.actionIcons.add(new Gore(4));
-		this.actionIcons.add(new Gore(4));
-		this.actionIcons.add(new MeleeIcon(4));
-		this.actionIcons.add(new Trample(4));
-		this.actionIcons.add(new SaveIcon(4));
-		this.actionIcons.add(new ManeuverIcon(4));
+		this.actionIcons.add(new ManeuverIcon(4).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(4).setOwningDice(this));
+		this.actionIcons.add(new MeleeIcon(4).setOwningDice(this));
+		this.actionIcons.add(new Gore(4).setOwningDice(this));
+		this.actionIcons.add(new Gore(4).setOwningDice(this));
+		this.actionIcons.add(new MeleeIcon(4).setOwningDice(this));
+		this.actionIcons.add(new Trample(4).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(4).setOwningDice(this));
+		this.actionIcons.add(new ManeuverIcon(4).setOwningDice(this));
 		this.actionIcons.add(new IDIcon(this.ID,this.size));
 	}
 

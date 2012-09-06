@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Trumpet extends SpecialIcons {
 
 	public Trumpet(int aV) {
@@ -7,16 +9,10 @@ public class Trumpet extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		if(rollFlags.MeleeFlag || rollFlags.SaveFlag){
-			rollFlags.resetFlags();
-			rollFlags.MeleeFlag = true;
-			rollFlags.SaveFlag = true;
-			rollFlags.armyModifier = true;
-			rollFlags.valueModifier = 2;
-			return rollFlags;
+	public int resolveEffects(Player p) {
+		if(p.getCurrentPhase().equalsIgnoreCase("Melee")||p.getCurrentPhase().equalsIgnoreCase("Save")){
+			
 		}
-		return rollFlags.resetFlags();
 	}
 
 }

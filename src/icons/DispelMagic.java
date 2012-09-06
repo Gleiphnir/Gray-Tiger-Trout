@@ -10,8 +10,8 @@ public class DispelMagic extends SpecialIcons {
 	}
 
 	@Override
-	public boolean resolveEffects(Player p) {
-		return false;
+	public int resolveEffects(Player p) {
+		return 0;
 	}
 
 }

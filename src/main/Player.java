@@ -7,6 +7,13 @@ import dice.TerrainDice;
 
 public class Player {
 	int magicPoints = 0;
+	int maneuverRoll = 0;
+	int meleeRoll = 0;
+	int magicRoll = 0;
+	int missileRoll = 0;
+	
+	protected String currentPhase;
+	
 	Vector<Dice> allDice = new Vector<Dice>();
 	Vector<Dice> BuriedUnitArea = new Vector<Dice>();
 	Vector<Dice> DeadUnitArea = new Vector<Dice>();
@@ -20,8 +27,9 @@ public class Player {
 	TerrainDice home;
 	
 	Player(Dice[] D){
-		for(Dice d:D)
+		for(Dice d:D){
 			this.allDice.add(d);
+		}
 	}
 	
 	boolean addDiceToCampaign(Dice a){
@@ -52,5 +60,22 @@ public class Player {
 	boolean setCampaignTerrain(TerrainDice t){
 		this.campaign = t;
 		return true;
+	}
+	
+	TerrainDice getTerrainDiceAt(String location){
+		if(location.equalsIgnoreCase("Home"))
+			return this.home;
+		else if(location.equalsIgnoreCase("Horde"))
+			return this.horde;
+		else
+			return this.campaign;
+	}
+
+	public String getCurrentPhase() {
+		return this.currentPhase;
+	}
+	
+	public void setCurrentPhase(String set) {
+		this.currentPhase = set;
 	}
 }

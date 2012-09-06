@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Rend extends SpecialIcons{
 
 	public Rend(int aV) {
@@ -7,23 +9,13 @@ public class Rend extends SpecialIcons{
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollType) {
-		if(rollType.ManeuverFlag){
-			rollType.resetFlags();
-			rollType.ManeuverFlag = true;
-			rollType.addFaceValue = true;
-			return rollType;
-		}
-		else if(rollType.MeleeFlag){
-			rollType.resetFlags();
-			rollType.MeleeFlag = true;
-			rollType.addFaceValue = true;
-			rollType.RerollFlag = true;
-			return rollType;
-		}
-			
-		return rollType.resetFlags();
-			
+	public int resolveEffects(Player p) {
+		if(p.getCurrentPhase().equalsIgnoreCase("Maneuver"))
+			return this.getActionValue();
+		else if(p.getCurrentPhase().equalsIgnoreCase("Melee"))
+			return this.getActionValue() + this.owningDice.rollDice().resolveEffects(p);
+		else
+			return 0;
 	}
 
 }

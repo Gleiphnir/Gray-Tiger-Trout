@@ -1,9 +1,13 @@
 package icons;
 
-public class Icons {
+import main.Player;
+import dice.Dice;
+
+public abstract class Icons {
 
 	private final int actionValue;
 	private final String name;
+	public Dice owningDice;
 	
 	Icons(String name, int aV){
 		this.actionValue = aV;
@@ -23,4 +27,10 @@ public class Icons {
 		
 	}
 	
+	public Icons setOwningDice(Dice die){
+		this.owningDice = die;
+		return this;
+	}
+	
+	public abstract int resolveEffects(Player p);
 }

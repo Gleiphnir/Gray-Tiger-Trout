@@ -9,11 +9,11 @@ public class LeopardFolk extends Feral {
 
 	public LeopardFolk() {
 		super(6, 2, "Leopard Folk");
-		this.actionIcons.add(new ManeuverIcon(2));
-		this.actionIcons.add(new MeleeIcon(3));
-		this.actionIcons.add(new MeleeIcon(3));
-		this.actionIcons.add(new SaveIcon(2));
-		this.actionIcons.add(new SaveIcon(2));
+		this.actionIcons.add(new ManeuverIcon(2).setOwningDice(this));
+		this.actionIcons.add(new MeleeIcon(3).setOwningDice(this));
+		this.actionIcons.add(new MeleeIcon(3).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(2).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(2).setOwningDice(this));
 		this.actionIcons.add(new IDIcon(this.ID,this.size));
 	}
 

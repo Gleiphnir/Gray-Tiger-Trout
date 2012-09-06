@@ -9,11 +9,11 @@ public class BadgerFolk extends Feral{
 
 	public BadgerFolk() {
 		super(6, 2, "BadgerFolk");
-		this.actionIcons.add(new MeleeIcon(3));
-		this.actionIcons.add(new MagicIcon(3));
-		this.actionIcons.add(new MagicIcon(2));
-		this.actionIcons.add(new SaveIcon(2));
-		this.actionIcons.add(new SaveIcon(2));
+		this.actionIcons.add(new MeleeIcon(3).setOwningDice(this));
+		this.actionIcons.add(new MagicIcon(3).setOwningDice(this));
+		this.actionIcons.add(new MagicIcon(2).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(2).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(2).setOwningDice(this));
 		this.actionIcons.add(new IDIcon(this.ID,this.size));
 	}
 

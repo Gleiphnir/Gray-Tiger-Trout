@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Gore extends SpecialIcons {
 
 	public Gore(int aV) {
@@ -7,8 +9,8 @@ public class Gore extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		return rollFlags.resetFlags();
+	public int resolveEffects(Player p) {
+		return 0;
 	}
 
 }

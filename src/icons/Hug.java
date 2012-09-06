@@ -1,5 +1,7 @@
 package icons;
 
+import main.Player;
+
 public class Hug extends SpecialIcons {
 
 	public Hug(int aV) {
@@ -7,11 +9,8 @@ public class Hug extends SpecialIcons {
 	}
 
 	@Override
-	public Flags resolveEffects(Flags rollFlags) {
-		if(rollFlags.MeleeFlag){
-			System.out.println("You Rolled Hug");
-		}
-		return rollFlags.resetFlags();
+	public int resolveEffects(Player p) {
+		return 0;
 	}
 
 }

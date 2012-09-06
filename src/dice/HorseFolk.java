@@ -9,11 +9,11 @@ public class HorseFolk extends Feral {
 
 	public HorseFolk() {
 		super(6, 2, "Horse Folk");
-		this.actionIcons.add(new ManeuverIcon(2));
-		this.actionIcons.add(new ManeuverIcon(2));
-		this.actionIcons.add(new ManeuverIcon(3));
-		this.actionIcons.add(new SaveIcon(2));
-		this.actionIcons.add(new MeleeIcon(3));
+		this.actionIcons.add(new ManeuverIcon(2).setOwningDice(this));
+		this.actionIcons.add(new ManeuverIcon(2).setOwningDice(this));
+		this.actionIcons.add(new ManeuverIcon(3).setOwningDice(this));
+		this.actionIcons.add(new SaveIcon(2).setOwningDice(this));
+		this.actionIcons.add(new MeleeIcon(3).setOwningDice(this));
 		this.actionIcons.add(new IDIcon(this.ID,this.size));
 	}
 

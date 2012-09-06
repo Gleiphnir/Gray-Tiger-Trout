@@ -44,12 +44,16 @@ public class Game {
 		System.out.println("Current Terrain Face is: "+t1.getCurrentFace().toString());
 		
 		//Begin a new round with first March
-		System.out.println("Where would you like to conduct your First March?");
-		String army = keyboard.next();
-		
-		movementRoll(keyboard, p1, p2, army);
-		
-		actionRoll(keyboard, p1, p2, army);
+		System.out.println("Would you like to conduct your First March?");
+		boolean choice = keyboard.nextBoolean();
+		if(choice){
+			System.out.println("Where wouldfal you like to conduct your First March?");
+			String army = keyboard.next();
+			System.out.println(movementRoll(keyboard, p1, p2, army) ?
+					"Terrain Dice is now: "+p1.getTerrainDiceAt(army).getCurrentFace()+" "
+					+p1.getTerrainDiceAt(army).getCurrentFaceValue():"No move occured."); 
+			actionRoll(keyboard, p1, p2, army);
+		}
 	}
 
 	private static void actionRoll(Scanner keyboard, Player p1, Player p2, String location) {
@@ -91,6 +95,8 @@ public class Game {
 			boolean player2 = keyboard.nextBoolean();
 			//If player2 wants to counter then proceed with rolls
 			if(player2){
+				p1.setCurrentPhase("Maneuver");
+				p2.setCurrentPhase("Maneuver");
 				int maneuver = maneuverDiceRoll(p1,location);
 				System.out.println("You rolled "+maneuver+" movement score.");
 				int counterManeuver = maneuverDiceRoll(p2,location);

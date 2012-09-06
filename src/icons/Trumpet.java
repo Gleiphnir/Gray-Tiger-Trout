@@ -11,8 +11,9 @@ public class Trumpet extends SpecialIcons {
 	@Override
 	public int resolveEffects(Player p) {
 		if(p.getCurrentPhase().equalsIgnoreCase("Melee")||p.getCurrentPhase().equalsIgnoreCase("Save")){
-			
+			return 0;
 		}
+		return 0;
 	}
 
 }
